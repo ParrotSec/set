@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with python2
+
+override_dh_auto_configure:
+override_dh_auto_clean:
+override_dh_auto_build:
+override_dh_auto_install:
+	# Setup.py is not usable
+
+override_dh_install:
+	dh_install
+	install -D debian/helper-script/Signed_Update.jar $(CURDIR)/debian/set/usr/share/set/src/html/Signed_Update.jar.orig
+
+override_dh_installchangelogs:
+	dh_installchangelogs readme/CHANGES

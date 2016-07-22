@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo ""
+echo "The se-toolkit command is deprecated."
+echo ""
+echo "Use the setoolkit command to launch the Social-Engineer Toolkit."
+echo ""
+

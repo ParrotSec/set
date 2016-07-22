@@ -1,0 +1,19 @@
+Source: set
+Section: utils
+Priority: extra
+Maintainer: Devon Kearns <dookie@kali.org>
+Build-Depends: debhelper (>= 9), python-all, dh-python
+Standards-Version: 3.9.3
+Homepage: https://www.trustedsec.com/downloads/social-engineer-toolkit/
+Vcs-Git: git://git.kali.org/packages/set.git
+Vcs-Browser: http://git.kali.org/gitweb/?p=packages/set.git;a=summary
+
+Package: set
+Architecture: all
+Depends: ${misc:Depends}, python, metasploit-framework, aircrack-ng, upx-ucl, ettercap-common, openssl, python-pexpect, python-impacket, python-crypto, python-pil, python-paramiko, python-pymssql
+Recommends: apache2
+Suggests: sendmail-bin
+Description: Social-Engineer Toolkit
+ The Social-Engineer Toolkit (SET) is an open-source 
+ Python-driven tool aimed at penetration testing around 
+ Social-Engineering.
