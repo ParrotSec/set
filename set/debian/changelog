@@ -1,3 +1,10 @@
+set (7.3.12-0parrot0) testing; urgency=medium
+
+  * Import new upstream release.
+  * Correct dependencies.
+
+ -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Fri, 19 Aug 2016 00:44:51 +0200
+
 set (7.2.3-0parrot0) testing; urgency=medium
 
   * Delete old parrot package and re-import from kali

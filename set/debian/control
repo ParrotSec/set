@@ -10,7 +10,7 @@ Vcs-Browser: http://git.kali.org/gitweb/?p=packages/set.git;a=summary
 
 Package: set
 Architecture: all
-Depends: ${misc:Depends}, python, metasploit-framework, aircrack-ng, upx-ucl, ettercap-common, openssl, python-pexpect, python-impacket, python-crypto, python-pil, python-paramiko, python-pymssql
+Depends: ${misc:Depends}, python, metasploit-framework, aircrack-ng, upx-ucl, ettercap-common, openssl, python-pexpect, python-impacket, python-crypto, python-pil, python-paramiko, python-pymssql, python-requests, libapache2-mod-php, python-openssl, python-pefile, python-qrcode
 Recommends: apache2
 Suggests: sendmail-bin
 Description: Social-Engineer Toolkit

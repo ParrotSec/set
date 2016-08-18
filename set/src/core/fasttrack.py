@@ -2,8 +2,11 @@
 from src.core.setcore import *
 from src.core.menu import text
 import subprocess
-
+from multiprocessing.dummy import Pool as ThreadPool 
 definepath = os.getcwd()
+
+try: input = raw_input
+except: pass
 
 #
 #
@@ -95,42 +98,27 @@ try:
                         if "/" in str(range):
                             iprange = printCIDR(range)
                             iprange = iprange.split(",")
-                            for host in iprange:
-                                sqlport = get_sql_port(host)
-                                if sqlport == None:
-                                    sql_nmap_scan(host)
-                                    if sql_nmap_scan != None:
-                                        sql_servers = sql_servers + \
-                                            host + ":" + "1433" + ","
-                                if sqlport != None:
-                                    sql_servers = sql_servers + \
-                                        host + ":" + sqlport + ","
+                            pool = ThreadPool(30)
+                            sqlport = pool.map(get_sql_port, iprange)
+                            pool.close()
+                            pool.join()
+                            for sql in sqlport:
+                                if sql != None: sql_servers = sql_servers + sql + ","
+
                         else:
                             range1 = range.split(" ")
                             for ip in range1:
                                 sqlport = get_sql_port(ip)
-                                if sqlport == None:
-                                    sql_nmap_scan(ip)
-                                    if sql_nmap_scan != None:
-                                        sql_servers = sql_servers + \
-                                            ip + ":" + "1433" + ","
-
                                 if sqlport != None:
-                                    sql_servers = sql_servers + \
-                                        ip + ":" + sqlport + ","
+                                    sql_servers = sql_servers + sqlport + ","
 
                     else:
                         # use udp discovery to get the SQL server UDP 1434
                         sqlport = get_sql_port(range)
                         # if its not closed then check nmap - if both fail then
                         # nada
-                        if sqlport == None:
-                            sql_nmap_scan(host)
-                            if sql_nmap_scan != None:
-                                sql_servers = sql_servers + \
-                                    host + ":" + "1433" + ","
                         if sqlport != None:
-                            sql_servers = range + ":" + sqlport
+                            sql_servers = sqlport + ","
 
                 # specify choice 2
                 if choice == "2":
@@ -165,6 +153,14 @@ try:
                     # split into tuple for different IP address
                     sql_servers = sql_servers.split(",")
                     # start loop and brute force
+
+                    print_status("The following SQL servers and associated ports were identified: ")
+                    for sql in sql_servers:
+                        if sql != "":
+                            print(sql)
+                    print("\n")
+                    print_status("By pressing enter, you will begin the brute force process on all SQL accounts identified in the list above.")
+                    test = input("Press {enter} to begin the brute force process.")
                     for servers in sql_servers:
 
                         # this will return the following format ipaddr + "," +
@@ -200,9 +196,6 @@ try:
                     if sql_servers:
                         print_warning(
                             "Sorry. Unable to locate or fully compromise a MSSQL Server on the following SQL servers: ")
-                        for line in sql_servers:
-                            if line != "":
-                                print("SQL Server: " + line.rstrip())
 
                     else:
                         print_warning(
