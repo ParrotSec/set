@@ -92,25 +92,27 @@ try:
                 if choice != "2":
                     # sql_servers
                     sql_servers = ''
-                    print_status(
-                        "Hunting for SQL servers.. This may take a little bit.")
+                    print_status("Hunting for SQL servers.. This may take a little bit.")
                     if "/" or " " in str(range):
                         if "/" in str(range):
                             iprange = printCIDR(range)
                             iprange = iprange.split(",")
-                            pool = ThreadPool(30)
+                            pool = ThreadPool(200)
                             sqlport = pool.map(get_sql_port, iprange)
                             pool.close()
                             pool.join()
                             for sql in sqlport:
-                                if sql != None: sql_servers = sql_servers + sql + ","
+                                if sql != None:
+                                    if sql != "":
+                                        sql_servers = sql_servers + sql + ","
 
                         else:
                             range1 = range.split(" ")
                             for ip in range1:
                                 sqlport = get_sql_port(ip)
                                 if sqlport != None:
-                                    sql_servers = sql_servers + sqlport + ","
+                                    if sqlport != "":
+                                        sql_servers = sql_servers + sqlport + ","
 
                     else:
                         # use udp discovery to get the SQL server UDP 1434
@@ -118,7 +120,8 @@ try:
                         # if its not closed then check nmap - if both fail then
                         # nada
                         if sqlport != None:
-                            sql_servers = sqlport + ","
+                            if sqlport != "":
+                                sql_servers = sqlport + ","
 
                 # specify choice 2
                 if choice == "2":
@@ -154,13 +157,14 @@ try:
                     sql_servers = sql_servers.split(",")
                     # start loop and brute force
 
-                    print_status("The following SQL servers and associated ports were identified: ")
+                    print_status("The following SQL servers and associated ports were identified:\n")
                     for sql in sql_servers:
                         if sql != "":
                             print(sql)
-                    print("\n")
-                    print_status("By pressing enter, you will begin the brute force process on all SQL accounts identified in the list above.")
-                    test = input("Press {enter} to begin the brute force process.")
+
+		    if len(sql_servers) > 2:
+                        print_status("By pressing enter, you will begin the brute force process on all SQL accounts identified in the list above.")
+                        test = input("Press {enter} to begin the brute force process.")
                     for servers in sql_servers:
 
                         # this will return the following format ipaddr + "," +

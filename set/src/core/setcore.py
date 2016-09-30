@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+1#!/usr/bin/env python
 #
 # Centralized core modules for SET
 #
@@ -210,7 +210,7 @@ def return_continue():
            "<return> " + bcolors.ENDC + "to continue"))
     pause = raw_input()
 
-# DEBUGGING ###############
+# DEBUGGING #############
 # ALWAYS SET TO ZERO BEFORE COMMIT!
 DEBUG_LEVEL = 0
 #  0 = Debugging OFF
@@ -345,7 +345,10 @@ def meta_path():
         if os.path.isfile("/usr/bin/msfconsole"):
             msf_path = ""
             trigger = 1
-
+        # Kali linux bleeding edge should return this in order to work
+        if os.path.isfile("/usr/share/metasploit-framework/msfconsole"):
+            msf_path = "/usr/share/metasploit-framework/"
+            trigger = 1
         # if we are using windows
         if check_os() == "windows":
             print_warning(
@@ -1783,7 +1786,9 @@ def get_sql_port(host):
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.settimeout(.2)
             s.connect((host, int(sql_port)))
-            return host + ":" + sql_port
+            return_host = host + ":" + sql_port
+            if return_host != ":" + sql_port:
+                return host + ":" + sql_port
 
         # if port is closed
         except: return None
