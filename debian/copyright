@@ -4,7 +4,7 @@ Source: https://www.trustedsec.com/downloads/social-engineer-toolkit/
 
 Files: *
 Copyright: 2013 David Kennedy <davek@trustedsec.com>
-           2013-2016 TrustedSec, LLC
+           2013-2017 TrustedSec, LLC
 License: Other
  Redistribution and use in source and binary forms, with or 
  without modification, are permitted provided that the 
@@ -77,38 +77,12 @@ License: MIT
 Files: src/webattack/fsattack/FACEBOOK/js/script.js
        src/webattack/fsattack/GMAIL/js/script.js
 Copyright: 2012 Feross Aboukhadijeh <feross@feross.org>
-License: UNKNOWN
-
-Files: src/core/tds.py
-Copyright: 2003-2012 CORE Security Technologies
-License: UNKNOWN
-
-Files: src/core/scapy.py
-Copyright: 2003 Philippe Biondi <phil@secdev.org>
-License: GPL-2
- This package is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License version 2 as published by
- the Free Software Foundation.
- .
- This package is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- .
- You should have received a copy of the GNU General Public License
- along with this program. If not, see <http://www.gnu.org/licenses/>
- .
- On Debian systems, the complete text of the GNU General
- Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+License: MIT
 
 Files: src/payloads/set_payloads/uac_bypass/source/Win7Elevate/Win7Elevate_Inject.cpp
        src/payloads/set_payloads/uac_bypass/source/Win7Elevate/Win7Elevate_Utils.cpp
 Copyright: Leo Davidson, 8th February 2009, all rights reserved
 License: UNKNOWN
-
-Files: src/qrcode/qrcode.py
-Copyright: 2009 Kazuhiko Arase
-License: MIT
 
 Files: debian/*
 Copyright: 2013 Devon Kearns <dookie@kali.org>

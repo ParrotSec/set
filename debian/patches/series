@@ -1,2 +1,3 @@
-edit-config-file.patch
+edit-config-file
 fix-path-interpreter.patch
+fix-syntax-error.patch

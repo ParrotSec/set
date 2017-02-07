@@ -1,4 +1,71 @@
 ~~~~~~~~~~~~~~~~
+version 7.5
+~~~~~~~~~~~~~~~~
+
+* updated config to turn apache_server default from on to off. can switch this under /etc/setoolkit/set.config to on if you want apache. 
+* wrote centralized function for new powershell encodedcommand obfsucation
+* added encodedcommand to java applet
+* added encodedcommand to hta attack vector
+* added encodedcommand to teensy
+* added encodedcommand to all modules with powershell injection
+* remove sms modules templates that were no longer used
+* added routes to help with spoofing - default is auto
+
+~~~~~~~~~~~~~~~~
+version 7.4.5
+~~~~~~~~~~~~~~~~
+
+* update fasttrack wordlist (git suggestion)
+* updated teensy codebase thanks to mikecjudge 
+
+~~~~~~~~~~~~~~~~
+version 7.4.4
+~~~~~~~~~~~~~~~~
+
+* fixed /usr/bin/msfconsole not showing appropriate metasploit path
+* fixed using hostname in powershell injector (when using http/https) payloads
+* added better handling around import methods in sms spoofing and break out error messages
+* change the api to python source for sms spoofing
+
+~~~~~~~~~~~~~~~~
+version 7.4.3
+~~~~~~~~~~~~~~~~
+
+* add a patch to pyopenssl through zipimporter - looks like a bug in pyopenssl when paths are specified
+
+~~~~~~~~~~~~~~~~
+version 7.4.2
+~~~~~~~~~~~~~~~~
+
+* define function meta_path() better
+* fixed a bug in binary2teensy that would not properly identify metasploit if launcher is in /usr/bin/msfconsole
+* fixed a bug in binary2teensy where it would not open the directory properly and make reports
+
+~~~~~~~~~~~~~~~~
+version 7.4.1
+~~~~~~~~~~~~~~~~
+
+* converted all powershell encodedcommand to abbreviated
+
+~~~~~~~~~~~~~~~~
+version 7.4
+~~~~~~~~~~~~~~~~
+
+* added better obfuscation around encodedcommand
+* added new third party module google analytics attack: # https://github.com/ZonkSec/google-analytics-attack. Walkthrough here: http://www.zonksec.com/blog/social-engineering-google-analytics/
+* converted alphanumeric shellcode to accept DNS names
+* changed alphanumeric shellcode to reverse_https instead of reverse_tcp
+* added prompt for TLS support in email phishing
+* added fsociety new logo - much larger lol
+* fixed issue that would cause java applet to not launch webserver
+* fixed issue that would cause metasploit browser to not launch webserver
+* replaced spawn.py with older version which did not do the full pytho3 conversion os.path.join breaks in python2
+* fixed spawning issue within spawn.py that would cause meta path to not launch in certain circumstances
+* fixed an issue that would cause pdf generation to not complete properly
+* added link to SET user manual into readme on github
+* fixed an issue that would cause HTA attack vector to not spawn reverse https payloads properly (size constraint)
+
+~~~~~~~~~~~~~~~~
 version 7.3.16
 ~~~~~~~~~~~~~~~~
 
