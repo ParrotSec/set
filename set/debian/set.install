@@ -1,6 +1,0 @@
-debian/helper-script/se* usr/bin/
-modules usr/share/set/
-se* usr/share/set/
-src usr/share/set/
-readme usr/share/set/
-README.md usr/share/set/

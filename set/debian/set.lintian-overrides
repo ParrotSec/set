@@ -1,2 +1,0 @@
-# This file is needed at run-time, it can't be dropped
-set: extra-license-file usr/share/set/readme/LICENSE

