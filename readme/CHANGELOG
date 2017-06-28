@@ -1,4 +1,57 @@
 ~~~~~~~~~~~~~~~~
+version 7.6.5
+~~~~~~~~~~~~~~~~
+
+* added new chrome user agent in config - config will automatically update
+
+~~~~~~~~~~~~~~~~
+version 7.6.4
+~~~~~~~~~~~~~~~~
+
+* fix an issue where encoding messed up sql commands for mssql bruter attack vector in fasttrack
+
+~~~~~~~~~~~~~~~~
+version 7.6.3
+~~~~~~~~~~~~~~~~
+
+* fixed PEM import zipimporter error message - was more of a warning, supressed if not using pyopenssl
+* fixed a harvester not found exception in harvester
+* fixed powershell teensy conversion error when printing output
+
+~~~~~~~~~~~~~~~~
+7.6.2
+~~~~~~~~~~~~~~~~
+
+* code cleanup on arduino (PR)
+* fixed an issue in spear phishing that would hold payload generation into a constant loop
+
+~~~~~~~~~~~~~~~~
+version 7.6.1
+~~~~~~~~~~~~~~~~
+
+* fixed old legacy php5 depend in setup.py
+* fixed a print_status error if pyopenssl wasnt loaded
+
+~~~~~~~~~~~~~~~~
+version 7.6
+~~~~~~~~~~~~~~~~
+
+* changed generate_random_string to be alpha only - no numeric - conflicts with latest encoding techniques and not needed to introduce numbers
+* changed the hta attack vector to incorporate strong obfuscation
+* fixed the HTA attack vector to include the new method for toString properly
+* added new obfuscation into new encodedcommand function within multiple modules
+* added new java applet to fix expired timeframe
+* removed spoofmytextmessages as it is no longer working properly - will be added when service is fixed
+* added latest airbase-ng to the repository to fix openssl issues
+
+~~~~~~~~~~~~~~~~
+version 7.5.1
+~~~~~~~~~~~~~~~~
+
+* moved config file to be the first identifier for metasploit config file then move onto other methods. Possible for conflicts to override
+* fixed indent with pep8 formatting
+
+~~~~~~~~~~~~~~~~
 version 7.5
 ~~~~~~~~~~~~~~~~
 
