@@ -1,4 +1,21 @@
 ~~~~~~~~~~~~~~~~
+version 7.7
+~~~~~~~~~~~~~~~~
+
+* rewrote grab_ipaddress() function to be a centralized routine that incorporates hostnames or IP addresses.
+* rewrote grab_ipaddress() to include automatic detection of ipaddress or failover to manual entry. This will allow easier selection fo IP addresses without having to drop into a different window
+* add hostname support for hta attack vector
+* removed deploy binaries as a default option in the set.config file
+* added ability for new menu for java applet that now allows you to specify multiple commands - useful if you want to insert things like empire payloads, etc.
+* rewrote java applet to have additional functionality for multiple command menu
+* better handling on command output
+* fixed custom applet from not working properly
+* fixed custom executable from not working properly
+* added new unsigned obfsucated jar file
+* added Java.java source files for customization
+* added new Java Applet self-signed with new expirations
+
+~~~~~~~~~~~~~~~~
 version 7.6.5
 ~~~~~~~~~~~~~~~~
 
