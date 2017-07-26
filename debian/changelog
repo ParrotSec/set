@@ -1,3 +1,9 @@
+set (7.7.1-0parrot0) testing; urgency=medium
+
+  * New upstream release.
+
+ -- Lorenzo "Palinuro" Faletra <palinuro@parrotsec.org>  Wed, 26 Jul 2017 12:18:31 +0200
+
 set (7.7-0parrot0) testing; urgency=medium
 
   * New upstream release.
